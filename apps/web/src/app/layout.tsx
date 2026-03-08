@@ -4,7 +4,7 @@ import './globals.css';
 import { QueryProvider } from '@/shared/providers/query-provider';
 import { ThemeProvider } from '@/shared/providers/theme-provider';
 
-const manrope = Manrope({ subsets: ['latin'], weight: ['400', '500', '600', '700'] });
+const manrope = Manrope({ subsets: ['latin', 'latin-ext'], weight: ['400', '500', '600', '700'] });
 
 export const metadata: Metadata = {
   title: 'SeeTheNumbers - Visualiza los números de tu negocio',

@@ -57,7 +57,8 @@ interface ParsedImportRow {
 }
 
 const parseRowsFromFile = (buffer: Buffer): Record<string, unknown>[] => {
-  const workbook = XLSX.read(buffer, { type: 'buffer' });
+  // Forzar codepage 65001 (UTF-8) para CSVs con acentos en español
+  const workbook = XLSX.read(buffer, { type: 'buffer', codepage: 65001 });
   const firstSheet = workbook.SheetNames[0];
 
   if (!firstSheet) {
