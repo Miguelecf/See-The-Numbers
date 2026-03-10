@@ -42,6 +42,7 @@ export interface CreateSaleItemInput {
 export interface CreateSaleInput {
   items: CreateSaleItemInput[];
   paymentMethodId: string;
+  discountMode?: 'NONE' | 'ITEM' | 'CART';
   cartDiscountPercent?: number;
   customerAlias?: string;
   notes?: string;

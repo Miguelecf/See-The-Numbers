@@ -13,6 +13,7 @@ import { useServices } from '@/modules/services/hooks/use-services';
 import { usePaymentMethods } from '@/modules/payment-methods/hooks/use-payment-methods';
 import { useCreateSale } from '@/modules/sales/hooks/use-sales';
 import { formatCurrency } from '@/shared/utils/format-currency';
+import { NumericPadModal } from '@/shared/components/ui/numeric-pad-modal';
 import { cn } from '@/shared/lib/utils';
 
 interface CartItem {
@@ -34,12 +35,22 @@ export default function PosPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchByBarcode, setSearchByBarcode] = useState('');
   const [paymentMethodId, setPaymentMethodId] = useState('');
+  const [discountMode, setDiscountMode] = useState<'NONE' | 'ITEM' | 'CART'>('NONE');
   const [cartDiscountPercent, setCartDiscountPercent] = useState(0);
   const [customerAlias, setCustomerAlias] = useState('');
   const [notes, setNotes] = useState('');
   const [cart, setCart] = useState<CartItem[]>([]);
   const barcodeInputRef = useRef<HTMLInputElement | null>(null);
   const [isKioskMode, setIsKioskMode] = useState(false);
+  
+  const [padConfig, setPadConfig] = useState<{
+    isOpen: boolean;
+    type: 'QTY' | 'ITEM_DESC' | 'CART_DESC';
+    tempId?: string;
+    initialValue: number;
+    max?: number;
+    title: string;
+  }>({ isOpen: false, type: 'QTY', initialValue: 0, title: '' });
 
   const filteredProducts = useMemo(() => {
     if (!searchQuery && !searchByBarcode) return products.slice(0, 10);
@@ -53,16 +64,18 @@ export default function PosPage() {
 
   const totals = useMemo(() => {
     const subtotal = cart.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0);
-    const lineDiscountTotal = cart.reduce(
+    const rawLineDiscountTotal = cart.reduce(
       (sum, item) => sum + item.unitPrice * item.quantity * (item.discountPercent / 100),
       0
     );
+    const lineDiscountTotal = discountMode === 'ITEM' ? rawLineDiscountTotal : 0;
     const subtotalAfterLineDiscount = subtotal - lineDiscountTotal;
-    const cartDiscountAmount = subtotalAfterLineDiscount * (cartDiscountPercent / 100);
+    const cartDiscountAmount =
+      discountMode === 'CART' ? subtotalAfterLineDiscount * (cartDiscountPercent / 100) : 0;
     const total = subtotalAfterLineDiscount - cartDiscountAmount;
 
     return { subtotal, lineDiscountTotal, cartDiscountAmount, total };
-  }, [cart, cartDiscountPercent]);
+  }, [cart, cartDiscountPercent, discountMode]);
 
   const addProductToCart = (productId: string) => {
     const product = products.find((item) => item._id === productId);
@@ -126,14 +139,17 @@ export default function PosPage() {
     createSaleMutation.mutate(
       {
         paymentMethodId,
-        cartDiscountPercent: cartDiscountPercent > 0 ? cartDiscountPercent : undefined,
+        discountMode,
+        cartDiscountPercent:
+          discountMode === 'CART' && cartDiscountPercent > 0 ? cartDiscountPercent : undefined,
         customerAlias: customerAlias.trim() || undefined,
         notes: notes || undefined,
         items: cart.map((item) => ({
           type: item.type,
           referenceId: item.referenceId,
           quantity: item.quantity,
-          discountPercent: item.discountPercent > 0 ? item.discountPercent : undefined,
+          discountPercent:
+            discountMode === 'ITEM' && item.discountPercent > 0 ? item.discountPercent : undefined,
         })),
       },
       {
@@ -141,12 +157,13 @@ export default function PosPage() {
           setCart([]);
           setNotes('');
           setCustomerAlias('');
+          setDiscountMode('NONE');
           setCartDiscountPercent(0);
           setPaymentMethodId('');
         },
       }
     );
-  }, [cart, cartDiscountPercent, createSaleMutation, customerAlias, notes, paymentMethodId]);
+  }, [cart, cartDiscountPercent, createSaleMutation, customerAlias, discountMode, notes, paymentMethodId]);
 
   const toggleKioskMode = async () => {
     try {
@@ -206,11 +223,11 @@ export default function PosPage() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
         {/* Main Content Area */}
-        <div className="space-y-6 lg:col-span-8">
+        <div className="space-y-4 lg:col-span-8">
           {/* Search & Quick Actions */}
-          <div className="apple-card p-6">
+          <div className="apple-card p-4">
             <div className="flex flex-col gap-4 md:flex-row">
               <div className="relative flex-1">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -295,9 +312,9 @@ export default function PosPage() {
 
         {/* Cart / Checkout Sidebar */}
         <div className="lg:col-span-4">
-          <div className="sticky top-6 flex flex-col gap-6">
-            <div className="apple-card flex flex-col h-[calc(100vh-12rem)] max-h-[800px]">
-              <div className="p-6 border-b flex items-center justify-between">
+          <div className="sticky top-6 flex flex-col gap-4">
+            <div className="apple-card flex flex-col h-[calc(100vh-10rem)] max-h-[850px]">
+              <div className="p-4 border-b flex items-center justify-between">
                 <h3 className="font-bold flex items-center gap-2">
                   <ShoppingCart className="h-5 w-5 text-primary" /> Ticket Actual
                 </h3>
@@ -332,24 +349,95 @@ export default function PosPage() {
                       </div>
                       <div className="flex items-center justify-between mt-1">
                         <div className="flex items-center gap-2">
-                          <Input
-                            type="number"
-                            className="h-7 w-14 text-xs text-center"
-                            value={item.quantity}
-                            onChange={(e) => updateCartItem(item.tempId, { quantity: Math.max(1, Number(e.target.value) || 1) })}
-                          />
+                          <button
+                            className="h-7 min-w-[3rem] px-2 text-sm font-bold bg-primary/10 text-primary hover:bg-primary/20 rounded-lg transition-colors"
+                            onClick={() => setPadConfig({ isOpen: true, type: 'QTY', tempId: item.tempId, initialValue: item.quantity, title: 'Cantidad' })}
+                          >
+                            {item.quantity}
+                          </button>
                           <span className="text-xs text-muted-foreground">x {formatCurrency(item.unitPrice)}</span>
                         </div>
-                        <span className="text-sm font-bold">{formatCurrency(item.unitPrice * item.quantity)}</span>
+                        <span className="text-sm font-bold">
+                          {formatCurrency(
+                            item.unitPrice * item.quantity *
+                              (1 - (discountMode === 'ITEM' ? item.discountPercent : 0) / 100)
+                          )}
+                        </span>
                       </div>
+                      {discountMode === 'ITEM' && (
+                        <div className="mt-1 flex items-center justify-between gap-2">
+                          <span className="text-xs text-muted-foreground">Desc. ítem (%)</span>
+                          <button
+                            className="h-7 min-w-[3.5rem] px-2 text-xs font-bold bg-secondary hover:bg-secondary/70 text-secondary-foreground rounded-lg transition-colors border border-border/50"
+                            onClick={() => setPadConfig({ isOpen: true, type: 'ITEM_DESC', tempId: item.tempId, initialValue: item.discountPercent, max: 100, title: 'Descuento (%)' })}
+                          >
+                            {item.discountPercent}%
+                          </button>
+                        </div>
+                      )}
                     </div>
                   ))
                 )}
               </div>
 
               {/* Summary & Checkout */}
-              <div className="p-6 bg-secondary/10 border-t space-y-4">
+              <div className="p-4 bg-secondary/10 border-t space-y-4">
                 <div className="space-y-2">
+                  <div className="rounded-xl border bg-background/40 p-2">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                      Descuento
+                    </p>
+                    <div className="grid grid-cols-3 gap-2">
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant={discountMode === 'NONE' ? 'default' : 'outline'}
+                        className="h-8 rounded-lg text-xs px-2"
+                        onClick={() => {
+                          setDiscountMode('NONE');
+                          setCartDiscountPercent(0);
+                          setCart((current) => current.map((item) => ({ ...item, discountPercent: 0 })));
+                        }}
+                      >
+                        Ninguno
+                      </Button>
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant={discountMode === 'ITEM' ? 'default' : 'outline'}
+                        className="h-8 rounded-lg text-xs px-2"
+                        onClick={() => {
+                          setDiscountMode('ITEM');
+                          setCartDiscountPercent(0);
+                        }}
+                      >
+                        Por Ítem
+                      </Button>
+                      <Button
+                        type="button"
+                        size="sm"
+                        variant={discountMode === 'CART' ? 'default' : 'outline'}
+                        className="h-8 rounded-lg text-xs px-2"
+                        onClick={() => {
+                          setDiscountMode('CART');
+                          setCart((current) => current.map((item) => ({ ...item, discountPercent: 0 })));
+                        }}
+                      >
+                        Global
+                      </Button>
+                    </div>
+                  </div>
+                  {discountMode === 'CART' && (
+                    <div className="flex items-center justify-between">
+                      <Label className="text-xs text-muted-foreground">Desc. global (%)</Label>
+                      <button
+                        className="h-8 min-w-[3.5rem] px-3 text-sm font-bold bg-secondary hover:bg-secondary/70 text-secondary-foreground rounded-lg transition-colors border border-border/50"
+                        onClick={() => setPadConfig({ isOpen: true, type: 'CART_DESC', initialValue: cartDiscountPercent, max: 100, title: 'Descuento Global (%)' })}
+                      >
+                        {cartDiscountPercent}%
+                      </button>
+                    </div>
+                  )}
                   <div className="flex items-center gap-2">
                     <CreditCard className="h-4 w-4 text-muted-foreground" />
                     <select
@@ -379,6 +467,18 @@ export default function PosPage() {
                     <span>Subtotal</span>
                     <span>{formatCurrency(totals.subtotal)}</span>
                   </div>
+                  {totals.lineDiscountTotal > 0 && (
+                    <div className="flex justify-between text-sm text-muted-foreground">
+                      <span>Desc. por productos</span>
+                      <span>-{formatCurrency(totals.lineDiscountTotal)}</span>
+                    </div>
+                  )}
+                  {totals.cartDiscountAmount > 0 && (
+                    <div className="flex justify-between text-sm text-muted-foreground">
+                      <span>Desc. general carrito</span>
+                      <span>-{formatCurrency(totals.cartDiscountAmount)}</span>
+                    </div>
+                  )}
                   <div className="flex justify-between text-base font-bold">
                     <span>Total</span>
                     <span className="text-primary text-xl">{formatCurrency(totals.total)}</span>
@@ -397,6 +497,23 @@ export default function PosPage() {
           </div>
         </div>
       </div>
+      <NumericPadModal
+        isOpen={padConfig.isOpen}
+        title={padConfig.title}
+        initialValue={padConfig.initialValue}
+        max={padConfig.max}
+        allowDecimals={false} // Items qty and discounts are kept as integers for simplicity in UI
+        onClose={() => setPadConfig(prev => ({ ...prev, isOpen: false }))}
+        onConfirm={(val) => {
+          if (padConfig.type === 'QTY' && padConfig.tempId) {
+            updateCartItem(padConfig.tempId, { quantity: Math.max(1, val) });
+          } else if (padConfig.type === 'ITEM_DESC' && padConfig.tempId) {
+            updateCartItem(padConfig.tempId, { discountPercent: val });
+          } else if (padConfig.type === 'CART_DESC') {
+            setCartDiscountPercent(val);
+          }
+        }}
+      />
     </div>
   );
 }

@@ -24,6 +24,12 @@ export const createSaleUseCase = async (
     throw new BadRequestError('Cart discount percent must be between 0 and 100');
   }
 
+  const hasItemDiscount = input.items.some((item) => (item.discountPercent ?? 0) > 0);
+  const hasCartDiscount = cartDiscountPercent > 0;
+  if (hasItemDiscount && hasCartDiscount) {
+    throw new BadRequestError('Use either item discount or cart discount, not both in the same sale');
+  }
+
   const paymentMethod = await paymentMethodRepository.findById(input.paymentMethodId);
   if (!paymentMethod.isActive) {
     throw new BadRequestError('Payment method is inactive');

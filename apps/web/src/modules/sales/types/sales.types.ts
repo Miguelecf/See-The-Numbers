@@ -28,6 +28,7 @@ export interface Sale {
 }
 
 export interface CreateSaleInput {
+  discountMode?: 'NONE' | 'ITEM' | 'CART';
   items: Array<{
     type: 'PRODUCT' | 'SERVICE';
     referenceId: string;

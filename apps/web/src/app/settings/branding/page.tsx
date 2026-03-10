@@ -60,7 +60,7 @@ export default function BrandingSettingsPage() {
         <CardContent className="space-y-4">
           <div className="grid gap-2">
             <Label htmlFor="store-name">Nombre del local</Label>
-            <Input id="store-name" value={storeName} onChange={(e) => setStoreName(e.target.value)} />
+            <Input id="store-name" value={storeName} maxLength={15} onChange={(e) => setStoreName(e.target.value)} />
           </div>
 
           <div className="grid gap-2">
@@ -78,11 +78,11 @@ export default function BrandingSettingsPage() {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl bg-primary/90 text-primary-foreground">
+            <div className="flex h-16 w-auto min-w-[4rem] px-4 items-center justify-center overflow-hidden rounded-2xl bg-primary/90 text-primary-foreground">
               {profileImage ? (
                 <img src={profileImage} alt={storeName} className="h-full w-full object-cover" />
               ) : (
-                <span className="text-lg font-semibold">{storeName.slice(0, 2).toUpperCase()}</span>
+                <span className="text-lg font-semibold">{storeName.slice(0, 15)}</span>
               )}
             </div>
             <Button className="rounded-2xl" onClick={saveBranding}>

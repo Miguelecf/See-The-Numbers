@@ -59,11 +59,11 @@ export function Sidebar() {
       <div className="flex h-full flex-col">
         <div className="apple-card flex min-h-20 items-center rounded-[calc(var(--radius)+12px)] px-5">
           <Link href="/dashboard" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-primary/90 text-primary-foreground">
+            <div className="flex h-11 w-auto min-w-[2.75rem] px-3 items-center justify-center overflow-hidden rounded-2xl bg-primary/90 text-primary-foreground">
               {branding.profileImage ? (
                 <img src={branding.profileImage} alt={branding.storeName} className="h-full w-full object-cover" />
               ) : (
-                <span className="text-sm font-bold">{branding.storeName.slice(0, 2).toUpperCase()}</span>
+                <span className="text-sm font-bold">{branding.storeName.slice(0, 15)}</span>
               )}
             </div>
             <div>

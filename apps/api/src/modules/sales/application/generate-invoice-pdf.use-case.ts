@@ -69,7 +69,7 @@ export const generateInvoicePdfUseCase = async (
       .text(item.nameSnapshot, 50, position, { width: 200 })
       .text(item.quantity.toString(), 250, position, { width: 50, align: 'right' })
       .text(`$${item.unitPrice.toLocaleString('es-AR')}`, 300, position, { width: 100, align: 'right' })
-      .text(`${item.discountPercent}%`, 400, position, { width: 50, align: 'right' })
+      .text(`${item.discountPercent ?? 0}%`, 400, position, { width: 50, align: 'right' })
       .text(`$${item.lineTotal.toLocaleString('es-AR')}`, 450, position, { width: 100, align: 'right' });
 
     position += 20;
