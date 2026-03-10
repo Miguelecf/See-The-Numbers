@@ -67,7 +67,7 @@ const parseRowsFromFile = (buffer: Buffer): Record<string, unknown>[] => {
 
   const worksheet = workbook.Sheets[firstSheet];
   return XLSX.utils.sheet_to_json(worksheet, {
-    raw: false,
+    raw: true,
     defval: '',
     blankrows: false,
   }) as Record<string, unknown>[];
@@ -122,6 +122,10 @@ const parseImportRows = (fileBuffer: Buffer) => {
       // Ignorar filas que no tienen absolutamente nada de texto
       const hasContent = Object.values(row).some(v => v !== undefined && v !== null && String(v).trim().length > 0);
       if (!hasContent) continue;
+
+      // Skip instruction/hint rows (e.g. "(Required)", "(Optional)")
+      const firstValue = String(Object.values(row)[0] ?? '').trim().toLowerCase();
+      if (firstValue.startsWith('(') && firstValue.endsWith(')')) continue;
 
       const parsed = mapRowToProduct(row);
 

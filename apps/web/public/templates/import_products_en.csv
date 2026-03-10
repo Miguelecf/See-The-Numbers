@@ -1,21 +1,22 @@
 Barcode,SKU,Name,Supplier,Unit,Cost,Quantity,Price,Category,Laboratory
+(Optional),(Optional),(Required),(Optional),(Optional),"(Required, integer e.g. 28000)","(Required, integer e.g. 15)","(Required, integer e.g. 38500, must be >= Cost)","(Optional, use / for hierarchy e.g. Dogs/Food)","(Optional)"
 7790001000011,RC-MINI-75,Royal Canin Mini Adult 7.5kg,Pet Distribuidora,Bolsa,28000,15,38500,Perros/Alimentos,Royal Canin
 7790001000012,RC-MINI-30,Royal Canin Mini Adult 3kg,Pet Distribuidora,Bolsa,13500,22,18500,Perros/Alimentos,Royal Canin
 7790001000013,RC-MINIP-30,Royal Canin Mini Puppy 3kg,Pet Distribuidora,Bolsa,14200,18,19500,Perros/Alimentos,Royal Canin
 7790001000014,RC-MAXI-15,Royal Canin Maxi Adult 15kg,Pet Distribuidora,Bolsa,49800,10,68500,Perros/Alimentos,Royal Canin
 7790001000015,RC-MAXIJ-15,Royal Canin Maxi Junior 15kg,Pet Distribuidora,Bolsa,52000,8,71500,Perros/Alimentos,Royal Canin
 7790001000016,RC-MED-15,Royal Canin Medium Adult 15kg,Pet Distribuidora,Bolsa,47800,12,65500,Perros/Alimentos,Royal Canin
-7790001000017,RC-GASTRO-2,Royal Canin Gastro Intestinal 2kg,Vet Market,Bolsa,20800,6,28500,Perros/Alimentos/ Veterinario,Royal Canin
-7790001000018,RC-RENAL-2,Royal Canin Renal Support 2kg,Vet Market,Bolsa,21500,5,29500,Perros/Alimentos/ Veterinario,Royal Canin
-7790001000019,RC-URIN-2,Royal Canin Urinary S/O 2kg,Vet Market,Bolsa,20000,7,27500,Perros/Alimentos/ Veterinario,Royal Canin
+7790001000017,RC-GASTRO-2,Royal Canin Gastro Intestinal 2kg,Vet Market,Bolsa,20800,6,28500,Perros/Alimentos/Veterinario,Royal Canin
+7790001000018,RC-RENAL-2,Royal Canin Renal Support 2kg,Vet Market,Bolsa,21500,5,29500,Perros/Alimentos/Veterinario,Royal Canin
+7790001000019,RC-URIN-2,Royal Canin Urinary S/O 2kg,Vet Market,Bolsa,20000,7,27500,Perros/Alimentos/Veterinario,Royal Canin
 7790001000020,RC-WEIGHT-3,Royal Canin Weight Care 3kg,Pet Distribuidora,Bolsa,16400,9,22500,Perros/Alimentos,Royal Canin
 7790001000021,RC-STER-3,Royal Canin Sterilised Adult 3kg,Pet Distribuidora,Bolsa,15700,14,21500,Perros/Alimentos,Royal Canin
 7790001000022,PP-AD-15,Pro Plan Adult Complete 15kg,Pet Distribuidora,Bolsa,38300,16,52500,Perros/Alimentos,Purina
 7790001000023,PP-PUP-15,Pro Plan Puppy Complete 15kg,Pet Distribuidora,Bolsa,39800,11,54500,Perros/Alimentos,Purina
 7790001000024,PP-SMALL-3,Pro Plan Adult Small Breed 3kg,Pet Distribuidora,Bolsa,16400,20,22500,Perros/Alimentos,Purina
 7790001000025,PP-SENS-3,Pro Plan Sensitive Skin 3kg,Pet Distribuidora,Bolsa,17100,13,23500,Perros/Alimentos,Purina
-7790001000026,PP-HA-3,Pro Plan Veterinary Diets HA 3kg,Vet Market,Bolsa,23700,4,32500,Perros/Alimentos/ Veterinario,Purina
-7790001000027,PP-EN-3,Pro Plan Veterinary Diets EN 3kg,Vet Market,Bolsa,23000,5,31500,Perros/Alimentos/ Veterinario,Purina
+7790001000026,PP-HA-3,Pro Plan Veterinary Diets HA 3kg,Vet Market,Bolsa,23700,4,32500,Perros/Alimentos/Veterinario,Purina
+7790001000027,PP-EN-3,Pro Plan Veterinary Diets EN 3kg,Vet Market,Bolsa,23000,5,31500,Perros/Alimentos/Veterinario,Purina
 7790001000028,EU-LARGE-15,Eukanuba Adult Large Breed 15kg,Pet Distribuidora,Bolsa,35400,9,48500,Perros/Alimentos,Eukanuba
 7790001000029,EU-MED-15,Eukanuba Adult Medium Breed 15kg,Pet Distribuidora,Bolsa,33900,11,46500,Perros/Alimentos,Eukanuba
 7790001000030,EU-PUP-L-15,Eukanuba Puppy Large Breed 15kg,Pet Distribuidora,Bolsa,36100,7,49500,Perros/Alimentos,Eukanuba
@@ -30,13 +31,13 @@ Barcode,SKU,Name,Supplier,Unit,Cost,Quantity,Price,Category,Laboratory
 7790001000039,WH-GAT-10,Whiskas Gatitos 10kg,Distribuidora Norte,Bolsa,14200,32,19500,Gatos/Alimentos,Whiskas
 7790001000040,PP-CAT-75,Pro Plan Cat Adult 7.5kg,Pet Distribuidora,Bolsa,31000,15,42500,Gatos/Alimentos,Purina
 7790001000041,PP-KIT-3,Pro Plan Cat Kitten 3kg,Pet Distribuidora,Bolsa,16400,18,22500,Gatos/Alimentos,Purina
-7790001000042,PP-CAT-U-3,Pro Plan Cat Urinary 3kg,Vet Market,Bolsa,20800,8,28500,Gatos/Alimentos/ Veterinario,Purina
+7790001000042,PP-CAT-U-3,Pro Plan Cat Urinary 3kg,Vet Market,Bolsa,20800,8,28500,Gatos/Alimentos/Veterinario,Purina
 7790001000043,RC-FIT-75,Royal Canin Fit 32 7.5kg,Pet Distribuidora,Bolsa,33900,12,46500,Gatos/Alimentos,Royal Canin
 7790001000044,RC-IND-4,Royal Canin Indoor 27 4kg,Pet Distribuidora,Bolsa,20800,14,28500,Gatos/Alimentos,Royal Canin
 7790001000045,RC-KIT-4,Royal Canin Kitten 4kg,Pet Distribuidora,Bolsa,21500,16,29500,Gatos/Alimentos,Royal Canin
 7790001000046,RC-STER-C-4,Royal Canin Sterilised 37 4kg,Pet Distribuidora,Bolsa,20000,20,27500,Gatos/Alimentos,Royal Canin
-7790001000047,RC-REN-C-2,Royal Canin Renal Cat 2kg,Vet Market,Bolsa,23700,6,32500,Gatos/Alimentos/ Veterinario,Royal Canin
-7790001000048,RC-GAS-C-2,Royal Canin Gastro Intestinal Cat 2kg,Vet Market,Bolsa,23000,5,31500,Gatos/Alimentos/ Veterinario,Royal Canin
+7790001000047,RC-REN-C-2,Royal Canin Renal Cat 2kg,Vet Market,Bolsa,23700,6,32500,Gatos/Alimentos/Veterinario,Royal Canin
+7790001000048,RC-GAS-C-2,Royal Canin Gastro Intestinal Cat 2kg,Vet Market,Bolsa,23000,5,31500,Gatos/Alimentos/Veterinario,Royal Canin
 7790001000049,EXC-CAT-75,Excellent Cat Adult 7.5kg,Distribuidora Norte,Bolsa,21500,22,29500,Gatos/Alimentos,Excellent
 7790001000050,EXC-KIT-75,Excellent Cat Kitten 7.5kg,Distribuidora Norte,Bolsa,23000,18,31500,Gatos/Alimentos,Excellent
 7790001000051,CC-AD-15,Cat Chow Adultos 15kg,Distribuidora Norte,Bolsa,16400,28,22500,Gatos/Alimentos,Purina
@@ -65,17 +66,17 @@ Barcode,SKU,Name,Supplier,Unit,Cost,Quantity,Price,Category,Laboratory
 7790001000074,TOT-FULL-CAT,Total Full Gatos 4kg,Vet Market,Caja,3360,30,5500,Gatos/Salud/Antiparasitarios,Bayer
 7790001000075,COL-ANTP,Antipulgas y Garrapatas Collar Perro,Distribuidora Norte,Unidad,2750,40,4500,Perros/Salud/Antiparasitarios,Zoetis
 7790001000076,COL-ANTP-CAT,Antipulgas y Garrapatas Collar Gato,Distribuidora Norte,Unidad,2320,35,3800,Gatos/Salud/Antiparasitarios,Zoetis
-7790001000077,VAN-PLUS5,Vacuna Vanguard Plus 5,Vet Market,Dosis,7650,20,12500,Perros/Salud/Vacunación,Zoetis
-7790001000078,VAN-PLUS7,Vacuna Vanguard Plus 7,Vet Market,Dosis,8850,18,14500,Perros/Salud/Vacunación,Zoetis
-7790001000079,NOB-DHPPi,Vacuna Nobivac DHPPi,Vet Market,Dosis,7030,22,11500,Perros/Salud/Vacunación,MSD
-7790001000080,NOB-LEP,Vacuna Nobivac Lepto,Vet Market,Dosis,5200,25,8500,Perros/Salud/Vacunación,MSD
-7790001000081,NOB-RAB,Vacuna Nobivac Rabia,Vet Market,Dosis,5800,30,9500,Perros/Salud/Vacunación,MSD
-7790001000082,FEL-RCP,Vacuna Feligen RCP,Vet Market,Dosis,6420,24,10500,Gatos/Salud/Vacunación,Virbac
-7790001000083,FEL-RCPCH,Vacuna Feligen RCPCh,Vet Market,Dosis,7650,18,12500,Gatos/Salud/Vacunación,Virbac
-7790001000084,PUR-RAB,Vacuna Purevax Rabia,Vet Market,Dosis,6720,20,11000,Gatos/Salud/Vacunación,Boehringer
-7790001000085,TRI-FEL,Vacuna Triple Felina,Vet Market,Dosis,5800,28,9500,Gatos/Salud/Vacunación,MSD
-7790001000086,ANT-RAB-IMP,Antirrabica Implante Perro,Vet Market,Dosis,9150,15,15000,Perros/Salud/Vacunación,Zoetis
-7790001000087,ANT-RAB-CAT,Antirrabica Implante Gato,Vet Market,Dosis,8540,12,14000,Gatos/Salud/Vacunación,Zoetis
+7790001000077,VAN-PLUS5,Vacuna Vanguard Plus 5,Vet Market,Dosis,7650,20,12500,Perros/Salud/Vacunacion,Zoetis
+7790001000078,VAN-PLUS7,Vacuna Vanguard Plus 7,Vet Market,Dosis,8850,18,14500,Perros/Salud/Vacunacion,Zoetis
+7790001000079,NOB-DHPPi,Vacuna Nobivac DHPPi,Vet Market,Dosis,7030,22,11500,Perros/Salud/Vacunacion,MSD
+7790001000080,NOB-LEP,Vacuna Nobivac Lepto,Vet Market,Dosis,5200,25,8500,Perros/Salud/Vacunacion,MSD
+7790001000081,NOB-RAB,Vacuna Nobivac Rabia,Vet Market,Dosis,5800,30,9500,Perros/Salud/Vacunacion,MSD
+7790001000082,FEL-RCP,Vacuna Feligen RCP,Vet Market,Dosis,6420,24,10500,Gatos/Salud/Vacunacion,Virbac
+7790001000083,FEL-RCPCH,Vacuna Feligen RCPCh,Vet Market,Dosis,7650,18,12500,Gatos/Salud/Vacunacion,Virbac
+7790001000084,PUR-RAB,Vacuna Purevax Rabia,Vet Market,Dosis,6720,20,11000,Gatos/Salud/Vacunacion,Boehringer
+7790001000085,TRI-FEL,Vacuna Triple Felina,Vet Market,Dosis,5800,28,9500,Gatos/Salud/Vacunacion,MSD
+7790001000086,ANT-RAB-IMP,Antirrabica Implante Perro,Vet Market,Dosis,9150,15,15000,Perros/Salud/Vacunacion,Zoetis
+7790001000087,ANT-RAB-CAT,Antirrabica Implante Gato,Vet Market,Dosis,8540,12,14000,Gatos/Salud/Vacunacion,Zoetis
 7790001000088,AMOX-250,Amoxicilina 250mg (10 comp),Vet Market,Caja,2750,40,4500,Perros/Salud/Medicamentos,Genfar
 7790001000089,AMOX-500,Amoxicilina 500mg (10 comp),Vet Market,Caja,3980,35,6500,Perros/Salud/Medicamentos,Genfar
 7790001000090,CLAM-250,Clamoxil 250mg (10 comp),Vet Market,Caja,3360,30,5500,Perros/Salud/Medicamentos,Zoetis
@@ -122,30 +123,30 @@ Barcode,SKU,Name,Supplier,Unit,Cost,Quantity,Price,Category,Laboratory
 7790001000131,COND-400,Condroitina 400mg (60 comp),Vet Market,Caja,8850,15,14500,Perros/Salud/Medicamentos,Genfar
 7790001000132,HEP-100,Hepatoprotector 100ml,Vet Market,Unidad,5800,22,9500,Perros/Salud/Medicamentos,Genfar
 7790001000133,COL-LUB-10,Colirio Lubrificante 10ml,Vet Market,Unidad,2750,35,4500,Perros/Salud/Medicamentos,Genfar
-7790001000134,COL-ANT-5,Colirio Antibiótico 5ml,Vet Market,Unidad,3980,28,6500,Perros/Salud/Medicamentos,Genfar
-7790001000135,GEN-OF,Gentamicina Gotas Oftálmicas,Vet Market,Unidad,3360,30,5500,Perros/Salud/Medicamentos,Genfar
-7790001000136,TOB-UNG,Tobramicina Ungüento Oftálmico,Vet Market,Unidad,4600,22,7500,Perros/Salud/Medicamentos,Genfar
+7790001000134,COL-ANT-5,Colirio Antibiotico 5ml,Vet Market,Unidad,3980,28,6500,Perros/Salud/Medicamentos,Genfar
+7790001000135,GEN-OF,Gentamicina Gotas Oftalmicas,Vet Market,Unidad,3360,30,5500,Perros/Salud/Medicamentos,Genfar
+7790001000136,TOB-UNG,Tobramicina Unguento Oftalmico,Vet Market,Unidad,4600,22,7500,Perros/Salud/Medicamentos,Genfar
 7790001000137,OFT-10,Oftalmix Colirio 10ml,Vet Market,Unidad,5200,20,8500,Perros/Salud/Medicamentos,Genfar
 7790001000138,LIM-AUR-120,Limpiador Auricular 120ml,Vet Market,Unidad,3980,25,6500,Perros/Salud/Medicamentos,Genfar
-7790001000139,OTIC-100,Oticlear Solución 100ml,Vet Market,Unidad,4600,22,7500,Perros/Salud/Medicamentos,Genfar
-7790001000140,SUER-500,Suero Fisiológico 500ml,Vet Market,Unidad,1530,60,2500,Perros/Salud/Medicamentos,Genfar
-7790001000141,SUER-1000,Suero Fisiológico 1000ml,Vet Market,Unidad,2440,45,4000,Perros/Salud/Medicamentos,Genfar
+7790001000139,OTIC-100,Oticlear Solucion 100ml,Vet Market,Unidad,4600,22,7500,Perros/Salud/Medicamentos,Genfar
+7790001000140,SUER-500,Suero Fisiologico 500ml,Vet Market,Unidad,1530,60,2500,Perros/Salud/Medicamentos,Genfar
+7790001000141,SUER-1000,Suero Fisiologico 1000ml,Vet Market,Unidad,2440,45,4000,Perros/Salud/Medicamentos,Genfar
 7790001000142,LACT-RIN-500,Lactato Ringer 500ml,Vet Market,Unidad,2140,50,3500,Perros/Salud/Medicamentos,Genfar
 7790001000143,LACT-RIN-1000,Lactato Ringer 1000ml,Vet Market,Unidad,3360,35,5500,Perros/Salud/Medicamentos,Genfar
 7790001000144,DEX-5-500,Dextrosa 5% 500ml,Vet Market,Unidad,1830,55,3000,Perros/Salud/Medicamentos,Genfar
 7790001000145,DEX-10-500,Dextrosa 10% 500ml,Vet Market,Unidad,2140,48,3500,Perros/Salud/Medicamentos,Genfar
-7790001000146,SAL-09-500,Solución Salina 0.9% 500ml,Vet Market,Unidad,1530,65,2500,Perros/Salud/Medicamentos,Genfar
+7790001000146,SAL-09-500,Solucion Salina 0.9% 500ml,Vet Market,Unidad,1530,65,2500,Perros/Salud/Medicamentos,Genfar
 7790001000147,AG-DES-500,Agua Destilada 500ml,Vet Market,Unidad,1220,80,2000,Perros/Salud/Medicamentos,Genfar
 7790001000148,ALC-70-500,Alcohol 70% 500ml,Vet Market,Unidad,2140,40,3500,Perros/Salud/Medicamentos,Genfar
 7790001000149,ALC-70-1000,Alcohol 70% 1000ml,Vet Market,Unidad,3360,30,5500,Perros/Salud/Medicamentos,Genfar
 7790001000150,YOD-POV-1000,Yodo Povidona 10% 1000ml,Vet Market,Unidad,2750,35,4500,Perros/Salud/Medicamentos,Genfar
 7790001000151,CLO-2-1000,Clorhexidina 2% 1000ml,Vet Market,Unidad,3360,28,5500,Perros/Salud/Medicamentos,Genfar
-7790001000152,PER-HID-1000,Peróxido de Hidrógeno 10 vol 1000ml,Vet Market,Unidad,1830,45,3000,Perros/Salud/Medicamentos,Genfar
-7790001000153,GAS-EST-10,Gasas Estériles 10x10 (100 un),Vet Market,Caja,3980,30,6500,Perros/Salud/Descartables,Genfar
-7790001000154,GAS-NOEST,Gasas No Estériles 500g,Vet Market,Paquete,2750,40,4500,Perros/Salud/Descartables,Genfar
-7790001000155,VEN-ELAS-10,Vendas Elásticas 10cm,Vet Market,Unidad,2140,50,3500,Perros/Salud/Descartables,Genfar
-7790001000156,VEN-ELAS-15,Vendas Elásticas 15cm,Vet Market,Unidad,2750,35,4500,Perros/Salud/Descartables,Genfar
-7790001000157,ESP-HIP-5,Esparadrapo Hipoalergénico 5m,Vet Market,Unidad,1530,60,2500,Perros/Salud/Descartables,Genfar
+7790001000152,PER-HID-1000,Peroxido de Hidrogeno 10 vol 1000ml,Vet Market,Unidad,1830,45,3000,Perros/Salud/Medicamentos,Genfar
+7790001000153,GAS-EST-10,Gasas Esteriles 10x10 (100 un),Vet Market,Caja,3980,30,6500,Perros/Salud/Descartables,Genfar
+7790001000154,GAS-NOEST,Gasas No Esteriles 500g,Vet Market,Paquete,2750,40,4500,Perros/Salud/Descartables,Genfar
+7790001000155,VEN-ELAS-10,Vendas Elasticas 10cm,Vet Market,Unidad,2140,50,3500,Perros/Salud/Descartables,Genfar
+7790001000156,VEN-ELAS-15,Vendas Elasticas 15cm,Vet Market,Unidad,2750,35,4500,Perros/Salud/Descartables,Genfar
+7790001000157,ESP-HIP-5,Esparadrapo Hipoalergenico 5m,Vet Market,Unidad,1530,60,2500,Perros/Salud/Descartables,Genfar
 7790001000158,MIC-25,Micropore 2.5cm x 5m,Vet Market,Unidad,2140,45,3500,Perros/Salud/Descartables,3M
 7790001000159,MIC-5,Micropore 5cm x 5m,Vet Market,Unidad,3360,30,5500,Perros/Salud/Descartables,3M
 7790001000160,JER-1,Jeringas 1ml (100 un),Vet Market,Caja,5200,25,8500,Perros/Salud/Descartables,Genfar
@@ -155,19 +156,19 @@ Barcode,SKU,Name,Supplier,Unit,Cost,Quantity,Price,Category,Laboratory
 7790001000164,AGU-25,Agujas 25x7 (100 un),Vet Market,Caja,3980,35,6500,Perros/Salud/Descartables,Genfar
 7790001000165,AGU-30,Agujas 30x8 (100 un),Vet Market,Caja,4600,30,7500,Perros/Salud/Descartables,Genfar
 7790001000166,AGU-40,Agujas 40x12 (100 un),Vet Market,Caja,5200,25,8500,Perros/Salud/Descartables,Genfar
-7790001000167,GUA-LAT-M,Guantes de Látex Talla M (100 un),Vet Market,Caja,7650,20,12500,Perros/Salud/Descartables,Genfar
-7790001000168,GUA-LAT-L,Guantes de Látex Talla L (100 un),Vet Market,Caja,7650,18,12500,Perros/Salud/Descartables,Genfar
+7790001000167,GUA-LAT-M,Guantes de Latex Talla M (100 un),Vet Market,Caja,7650,20,12500,Perros/Salud/Descartables,Genfar
+7790001000168,GUA-LAT-L,Guantes de Latex Talla L (100 un),Vet Market,Caja,7650,18,12500,Perros/Salud/Descartables,Genfar
 7790001000169,GUA-NIT-M,Guantes de Nitrilo Talla M (100 un),Vet Market,Caja,11300,15,18500,Perros/Salud/Descartables,Genfar
 7790001000170,GUA-NIT-L,Guantes de Nitrilo Talla L (100 un),Vet Market,Caja,11300,14,18500,Perros/Salud/Descartables,Genfar
-7790001000171,BAT-QUIR,Batas Quirúrgicas Desechables (10 un),Vet Market,Paquete,13700,12,22500,Perros/Salud/Descartables,Genfar
-7790001000172,CAM-QUIR,Campos Quirúrgicos Estériles (10 un),Vet Market,Paquete,11300,15,18500,Perros/Salud/Descartables,Genfar
+7790001000171,BAT-QUIR,Batas Quirurgicas Desechables (10 un),Vet Market,Paquete,13700,12,22500,Perros/Salud/Descartables,Genfar
+7790001000172,CAM-QUIR,Campos Quirurgicos Esteriles (10 un),Vet Market,Paquete,11300,15,18500,Perros/Salud/Descartables,Genfar
 7790001000173,CEP-DENT-P,Cepillo Dental Perro,Distribuidora Norte,Unidad,2750,40,4500,Perros/Higiene,Pet Care
-7790001000174,PAST-DENT,Pasta Dental Enzimática 100g,Distribuidora Norte,Unidad,5200,25,8500,Perros/Higiene,Virbac
+7790001000174,PAST-DENT,Pasta Dental Enzimatica 100g,Distribuidora Norte,Unidad,5200,25,8500,Perros/Higiene,Virbac
 7790001000175,CEP-DEDO,Cepillo Dental Dedo,Distribuidora Norte,Unidad,2140,50,3500,Perros/Higiene,Pet Care
 7790001000176,HIL-DENT,Hilo Dental Perros 50m,Distribuidora Norte,Unidad,3360,30,5500,Perros/Higiene,Pet Care
 7790001000177,ENJ-BUC,Enjuague Bucal Perros 250ml,Distribuidora Norte,Unidad,4600,22,7500,Perros/Higiene,Virbac
-7790001000178,SH-HIPO-500,Shampoo Hipoalergénico 500ml,Distribuidora Norte,Unidad,4100,12,7200,Estética/Baño,Osspret
-7790001000179,SH-MED-250,Shampoo Medicado Antiseborreico 250ml,Distribuidora Norte,Unidad,5200,18,8500,Estética/Baño,Virbac
-7790001000180,SH-ANTP-250,Shampoo Antipulgas 250ml,Distribuidora Norte,Unidad,3980,25,6500,Estética/Baño,Osspret
-7790001000181,SH-ACOND-500,Shampoo Acondicionador 500ml,Distribuidora Norte,Unidad,4600,20,7500,Estética/Baño,Osspret
-7790001000182,SH-CACH-250,Shampoo Cachorros 250ml,Distribuidora,Unidad,3360,30,5500,Estética/Baño,Osspret
+7790001000178,SH-HIPO-500,Shampoo Hipoalergenico 500ml,Distribuidora Norte,Unidad,4100,12,7200,Estetica/Bano,Osspret
+7790001000179,SH-MED-250,Shampoo Medicado Antiseborreico 250ml,Distribuidora Norte,Unidad,5200,18,8500,Estetica/Bano,Virbac
+7790001000180,SH-ANTP-250,Shampoo Antipulgas 250ml,Distribuidora Norte,Unidad,3980,25,6500,Estetica/Bano,Osspret
+7790001000181,SH-ACOND-500,Shampoo Acondicionador 500ml,Distribuidora Norte,Unidad,4600,20,7500,Estetica/Bano,Osspret
+7790001000182,SH-CACH-250,Shampoo Cachorros 250ml,Distribuidora Norte,Unidad,3360,30,5500,Estetica/Bano,Osspret

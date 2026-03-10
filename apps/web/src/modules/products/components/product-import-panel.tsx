@@ -74,18 +74,13 @@ export function ProductImportPanel() {
           </div>
           <div>
             <h3 className="font-bold text-lg">Importación Inteligente</h3>
-            <p className="text-sm text-muted-foreground">Sube tu Excel o CSV con encabezados en ES o EN</p>
+            <p className="text-sm text-muted-foreground">Sube tu Excel o CSV usando nuestra plantilla (EN)</p>
           </div>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" size="sm" className="rounded-full gap-2" asChild>
-            <a href="/templates/import_productos_es.csv" download>
-              <Download className="h-3.5 w-3.5" /> Plantilla (ES)
-            </a>
-          </Button>
-          <Button variant="outline" size="sm" className="rounded-full gap-2" asChild>
-            <a href="/templates/import_products_en.csv" download>
-              <Download className="h-3.5 w-3.5" /> Template (EN)
+            <a href="/templates/import_products_en.xlsx" download>
+              <Download className="h-3.5 w-3.5" /> Descargar Plantilla
             </a>
           </Button>
         </div>
