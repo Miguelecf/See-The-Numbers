@@ -1,4 +1,4 @@
-# SeeTheNumbers - POS System
+# SeeTheNumbers - Smart POS & Inventory System
 
 [🇪🇸 Español](#-español) | [🇬🇧 English](#-english)
 
@@ -6,159 +6,133 @@
 
 ## 🇪🇸 Español
 
-**Sistema de Punto de Venta (POS) local-first diseñado para pequeños negocios (veterinarias, petshops, peluquerías caninas) con enfoque en el control de inventario y el cálculo real de márgenes.**
+### 🚀 Tu negocio, bajo control.
+**SeeTheNumbers** es un sistema de Punto de Venta (POS) de alto rendimiento diseñado específicamente para pequeños negocios (veterinarias, petshops, farmacias) que necesitan profesionalizar su gestión sin complicaciones.
 
-### ¿Qué es SeeTheNumbers?
-SeeTheNumbers no es solo una caja registradora. Es un sistema integral de gestión comercial que permite:
-- **Control de Inventario**: Seguimiento de stock en tiempo real y alertas de bajo stock.
-- **Cálculo de Rentabilidad**: Calcula automáticamente costos y márgenes de productos y servicios.
-- **Punto de Venta Rápido**: Interfaz optimizada (atajos de teclado, lector de código de barras) para facturar en segundos.
-- **Facturación PDF**: Generación automática de comprobantes.
-- **Insights**: Datos sobre productos más vendidos, stock crítico y rendimiento.
+A diferencia de las cajas registradoras tradicionales, SeeTheNumbers se enfoca en lo que realmente importa: **ver los números reales de tu negocio**.
 
-> ⚠️ **Nota**: Esta es una aplicación orientada a escritorio/local. No requiere conexión a internet constante para funcionar de manera óptima.
+#### ✨ Características Principales
+- **Punto de Venta Inteligente**: Interfaz ultra rápida con soporte para lectores de códigos de barras y atajos de teclado (F2 para escanear, F9 para cobrar).
+- **Control de Inventario Real**: Gestión de stock con historial de movimientos (entradas, salidas, ajustes) y alertas de stock bajo.
+- **Cálculo de Márgenes Automático**: Define tus costos y deja que el sistema calcule tu rentabilidad real por cada producto o servicio vendido.
+- **Importación Masiva Inteligente**: Sube miles de productos desde Excel/CSV con detección automática de SKUs duplicados y normalización de precios.
+- **Facturación PDF**: Genera comprobantes profesionales al instante para tus clientes.
+- **Local-First & Desktop Ready**: Ejecútalo localmente en tu PC sin depender 100% de la nube.
 
-### Tecnologías Principales
-- **Monorepo**: npm workspaces
-- **Frontend**: Next.js 14 (App Router), Tailwind CSS, shadcn/ui, TanStack Query.
-- **Backend**: Node.js, Express, MongoDB (Mongoose), Arquitectura Modular por Dominios.
-- **Desktop**: Electron (En desarrollo).
+#### 🛠️ Stack Tecnológico
+- **Frontend**: Next.js 14 (App Router), Tailwind CSS, shadcn/ui.
+- **Estado del Servidor**: TanStack Query (React Query) para una UI fluida.
+- **Backend**: Node.js & Express con arquitectura de **Modular Monolith**.
+- **Base de Datos**: MongoDB (Mongoose) con validación robusta vía Zod.
+- **Desktop**: Electron para una experiencia nativa de escritorio.
 
-### Guía Rápida de Desarrollo
+#### 🏗️ Arquitectura
+El proyecto utiliza un patrón de **Vertical Slices** y arquitectura modular. Cada dominio (`products`, `sales`, `categories`, etc.) es independiente y contiene sus propias capas de:
+1. **Domain**: Entidades y lógica de negocio pura.
+2. **Application**: Casos de uso y orquestación.
+3. **Infrastructure**: Repositorios y esquemas de base de datos.
+4. **Presentation**: Controladores y rutas de la API.
 
+---
+
+### 📥 Cómo levantarlo (Setup)
+
+#### Requisitos
+- Node.js 18+
+- MongoDB (Local o vía Docker)
+
+#### Instalación rápida
 ```bash
-# 1. Clonar e instalar
+# 1. Clonar el repositorio
 git clone <repo-url>
 cd See-The-Numbers
+
+# 2. Instalar dependencias
 npm install
 
-# 2. Base de datos (Requiere MongoDB o Docker)
+# 3. Levantar base de datos (si usas Docker)
 docker run -d -p 27017:27017 --name mongodb mongo:latest
 
-# 3. Cargar datos de prueba
+# 4. Cargar datos de prueba (Opcional)
 npm run seed
 
-# 4. Iniciar sistema completo (API + Web)
+# 5. Iniciar el sistema (API + Web)
 npm run dev
-
-# Limpiar datos del negocio (productos/categorías/ventas/etc.)
-npm run db:reset
 ```
-* **Web**: `http://localhost:3000`
-* **API**: `http://localhost:4000`
+
+> 🖥️ **Modo Escritorio**: Para ejecutar la versión nativa de Electron: `npm run dev:desktop`
+
+#### Comandos Útiles
+- `npm run db:reset`: Limpia la base de datos (ideal para pruebas).
+- `npm run seed`: Carga el catálogo de prueba con más de 170 productos.
+- `npm run build`: Genera los bundles de producción.
 
 ---
 
 ## 🇬🇧 English
 
-**A local-first Point of Sale (POS) system designed for small businesses (veterinary clinics, pet shops, dog grooming) focusing on inventory control and real margin calculation.**
+### 🚀 Your business, under control.
+**SeeTheNumbers** is a high-performance Point of Sale (POS) system specifically designed for small businesses (veterinary clinics, pet shops, pharmacies) that need to professionalize their management without the hassle.
 
-### What is SeeTheNumbers?
-SeeTheNumbers is more than a cash register. It's a comprehensive business management system that provides:
-- **Inventory Control**: Real-time stock tracking and low-stock alerts.
-- **Profitability Calculation**: Automatically calculates costs and profit margins for products and services.
-- **Fast POS**: Optimized interface (keyboard shortcuts, barcode scanner support) to check out customers in seconds.
-- **PDF Invoicing**: Automatic receipt generation.
-- **Insights**: Data on top-selling products, critical stock levels, and performance.
+Unlike traditional cash registers, SeeTheNumbers focuses on what truly matters: **seeing your business's real numbers**.
 
-> ⚠️ **Note**: This is a desktop/local-oriented application. It does not require a constant internet connection to function optimally.
+#### ✨ Key Features
+- **Smart POS**: Ultra-fast interface with barcode scanner support and keyboard shortcuts (F2 to scan, F9 to checkout).
+- **Real Inventory Control**: Stock management with movement history (IN, OUT, ADJUSTMENT) and low-stock alerts.
+- **Automatic Margin Calculation**: Set your costs and let the system calculate your real profitability for every product or service sold.
+- **Smart Bulk Import**: Upload thousands of products from Excel/CSV with automatic duplicate SKU detection and price normalization.
+- **PDF Invoicing**: Generate professional receipts instantly for your customers.
+- **Local-First & Desktop Ready**: Run it locally on your PC without being 100% dependent on the cloud.
 
-### Main Tech Stack
-- **Monorepo**: npm workspaces
-- **Frontend**: Next.js 14 (App Router), Tailwind CSS, shadcn/ui, TanStack Query.
-- **Backend**: Node.js, Express, MongoDB (Mongoose), Modular Domain-Driven Architecture.
-- **Desktop**: Electron (In development).
+#### 🛠️ Tech Stack
+- **Frontend**: Next.js 14 (App Router), Tailwind CSS, shadcn/ui.
+- **Server State**: TanStack Query (React Query) for a seamless UI.
+- **Backend**: Node.js & Express using a **Modular Monolith** architecture.
+- **Database**: MongoDB (Mongoose) with robust validation via Zod.
+- **Desktop**: Electron for a native desktop experience.
 
-### Quick Start (Development)
+#### 🏗️ Architecture
+The project follows a **Vertical Slices** pattern and modular architecture. Each domain (`products`, `sales`, `categories`, etc.) is independent and contains its own layers:
+1. **Domain**: Entities and pure business logic.
+2. **Application**: Use cases and orchestration.
+3. **Infrastructure**: Repositories and database schemas.
+4. **Presentation**: API controllers and routes.
 
+---
+
+### 📥 Getting Started (Setup)
+
+#### Prerequisites
+- Node.js 18+
+- MongoDB (Local or via Docker)
+
+#### Quick Installation
 ```bash
-# 1. Clone and install
+# 1. Clone the repository
 git clone <repo-url>
 cd See-The-Numbers
+
+# 2. Install dependencies
 npm install
 
-# 2. Database (Requires MongoDB or Docker)
+# 3. Start database (if using Docker)
 docker run -d -p 27017:27017 --name mongodb mongo:latest
 
-# 3. Load dummy data
+# 4. Load dummy data (Optional)
 npm run seed
 
-# 4. Start full system (API + Web)
+# 5. Start the system (API + Web)
 npm run dev
-
-# Clean business data (products/categories/sales/etc.)
-npm run db:reset
-```
-* **Web**: `http://localhost:3000`
-* **API**: `http://localhost:4000`
-
----
-
-## Funcionalidades MVP v1.0.0
-
-### Implementadas
-
-- [x] **Punto de Venta (POS)**: Carrito con productos y servicios, descuentos por linea y por carrito, seleccion de metodo de pago, alias de cliente
-- [x] **Atajos de teclado**: F2 para enfocar campo de codigo de barras, F9 para confirmar venta
-- [x] **Modo kiosco**: Pantalla completa para uso en caja
-- [x] **Gestion de stock**: Recarga de inventario, ajuste manual, historial de movimientos (IN/OUT/ADJUSTMENT)
-- [x] **Importacion CSV/Excel**: Preview con deteccion de SKU existentes, confirmacion selectiva de reemplazos, soporte de headers en espanol e ingles
-- [x] **Facturacion PDF**: Generacion de comprobante descargable por venta
-- [x] **Productos**: CRUD con codigo de barras, SKU, proveedor, laboratorio, costo, precio, cantidad, stock minimo
-- [x] **Servicios**: CRUD con items de costo y calculo de margen automatico
-- [x] **Dashboard**: Resumen de ventas, productos, servicios y alertas de stock bajo
-- [x] **Insights**: Analisis de negocio con reglas de productos mas vendidos, stock critico, margenes
-- [x] **Metodos de pago**: CRUD con ordenamiento y activacion/desactivacion
-- [x] **Branding**: Nombre de tienda e imagen personalizable en sidebar
-- [x] **Soft delete**: Productos y servicios se desactivan en lugar de eliminarse
-- [x] **App de escritorio**: Electron con menu nativo y auto-inicio de API/Web
-
-### Roadmap / TODO
-
-- [ ] **Clientes CRM**: Historial de compras por cliente, datos de contacto
-- [ ] **Reportes avanzados**: Graficos de ventas por dia/semana/mes, exportacion a Excel
-- [ ] **Multi-sucursal**: Soporte para multiples puntos de venta
-- [ ] **Sincronizacion cloud**: Backup y sync opcional a servidor remoto
-- [ ] **Facturacion electronica**: Integracion con AFIP/SRI/SAT segun pais
-- [ ] **Modo offline**: Cache local con sincronizacion al reconectar
-- [ ] **Escaner automatico**: Auto-disparo sin Enter, debounce de lectura rapida
-- [ ] **Temas oscuro/claro**: Toggle de tema en la app
-- [ ] **Notificaciones push**: Alertas de stock bajo en tiempo real
-- [ ] **App movil**: Version PWA o React Native para consultas rapidas
-
----
-
-## Empaquetado Desktop (v1.0.0)
-
-El empaquetado esta configurado en `apps/desktop/package.json` (bloque `build`) con **electron-builder**.
-
-Comandos:
-
-```bash
-# macOS (genera .dmg)
-npm run build:mac --workspace=apps/desktop
-
-# Windows (genera instalador .exe NSIS)
-npm run build:win --workspace=apps/desktop
-
-# Output sin instalador (carpeta unpacked)
-npm run build --workspace=apps/desktop
 ```
 
-Salida de artefactos:
-- `apps/desktop/dist/`
+> 🖥️ **Desktop Mode**: To run the native Electron version: `npm run dev:desktop`
+
+#### Useful Commands
+- `npm run db:reset`: Clears the database (great for testing).
+- `npm run seed`: Loads the test catalog with over 170 products.
+- `npm run build`: Generates production bundles.
 
 ---
 
-## Contribuir
-
-1. Fork el repositorio
-2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -m 'feat: agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
-
----
-
-## Licencia / License
-MIT
+## 📄 License
+MIT © 2026 SeeTheNumbers.
